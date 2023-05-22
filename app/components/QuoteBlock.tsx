@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
 export type QuoteBlockProps = {
   quoteText: string;
@@ -22,13 +23,18 @@ export default function QuoteBlock({
       </div>
       {withAuthor && (
         <Link href={`/${quoteAuthor}`}>
-          <div className="group ml-[82px] mt-[109px] inline-block h-[151px] w-[672px] pl-[29px] pt-[50px] hover:cursor-pointer hover:bg-[#333333]">
-            <p className="text-[24px] font-bold leading-[28.18px] text-[#4F4F4F] group-hover:text-[#F2F2F2]">
-              {quoteAuthor}
-            </p>
-            <p className="mt-2 text-[14px] leading-[16.44px] text-[#828282]">
-              {quoteGenre}
-            </p>
+          <div className="group ml-[82px] mt-[109px] flex h-[151px] w-[672px] justify-around pl-[29px] pt-[50px] hover:cursor-pointer hover:bg-[#333333]">
+            <div className="w-4/5">
+              <p className="text-[24px] font-bold leading-[28.18px] text-[#4F4F4F] group-hover:text-[#F2F2F2]">
+                {quoteAuthor}
+              </p>
+              <p className="mt-2 text-[14px] leading-[16.44px] text-[#828282]">
+                {quoteGenre}
+              </p>
+            </div>
+            <div className="invisible mr-[40px] mt-2 group-hover:visible">
+              <ArrowLongRightIcon className="h-8 w-8 text-[#F2F2F2]" />
+            </div>
           </div>
         </Link>
       )}

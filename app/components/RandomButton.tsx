@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { RandomQuote } from '../page';
 
 type RandomButtonProps = {
@@ -8,8 +9,13 @@ type RandomButtonProps = {
 
 export default function RandomButton({ onRandomize }: RandomButtonProps) {
   return (
-    <button className="absolute right-[100px] top-[31px]" onClick={RandomQuote}>
-      <p>random</p>
-    </button>
+    <Link href={`/`}>
+      <button
+        className="absolute right-[100px] top-[31px]"
+        onClick={RandomQuote}
+      >
+        <p>random</p>
+      </button>
+    </Link>
   );
 }

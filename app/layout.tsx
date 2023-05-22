@@ -5,7 +5,7 @@ import { Raleway } from 'next/font/google';
 const raleway = Raleway({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Generate a Random Quote',
+  title: 'Random Quote Generator',
   description: 'Endlessly generate random quotes for free!',
 };
 
