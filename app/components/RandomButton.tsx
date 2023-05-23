@@ -1,21 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { RandomQuote } from '../page';
 
 type RandomButtonProps = {
-  onRandomize: React.MouseEventHandler<HTMLButtonElement>;
+  onRandomize?: React.MouseEventHandler<HTMLButtonElement> | null;
 };
 
-export default function RandomButton({ onRandomize }: RandomButtonProps) {
+export default function RandomButton({
+  onRandomize = null,
+}: RandomButtonProps) {
   return (
-    <Link href={`/`}>
-      <button
-        className="absolute right-[100px] top-[31px]"
-        onClick={RandomQuote}
-      >
-        <p>random</p>
-      </button>
+    <Link href={`/`} className="absolute right-[100px] top-[31px]">
+      random
     </Link>
   );
 }

@@ -1,4 +1,5 @@
 import QuoteBlock from '../components/QuoteBlock';
+import RandomButton from '../components/RandomButton';
 import { Result } from '../page';
 
 export default async function ({ params }: { params: { author: string } }) {
@@ -18,6 +19,7 @@ export default async function ({ params }: { params: { author: string } }) {
 
   return (
     <main className="flex flex-col">
+      <RandomButton />
       <section className="mb-[101px] mt-[101px] flex flex-col items-center space-y-[140px]">
         <div className="w-[713px] pl-[99px]">
           <h1 className="leading[42.26px] text-[36px] font-bold text-[#333333]">

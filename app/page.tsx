@@ -1,7 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import QuoteBlock from './components/QuoteBlock';
 import RandomButton from './components/RandomButton';
 
-type Result = {
+export type Result = {
   _id: string;
   quoteText: string;
   quoteAuthor: string;
@@ -24,8 +27,9 @@ export async function RandomQuote() {
 
 export default async function () {
   let { data } = await RandomQuote();
+  let quote: Result[] = data;
 
-  return data.map((item: Result) => (
+  return quote.map((item: Result) => (
     <main className="flex h-screen items-center justify-center">
       <RandomButton />
       <QuoteBlock
