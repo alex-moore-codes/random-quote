@@ -29,6 +29,7 @@ export default async function ({ params }: { params: { author: string } }) {
         <div className="flex flex-col items-center space-y-[140px]">
           {data.map((item: Result) => (
             <QuoteBlock
+              key={item._id}
               quoteText={item.quoteText}
               quoteAuthor={item.quoteAuthor}
               quoteGenre={item.quoteGenre}

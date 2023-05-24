@@ -28,15 +28,18 @@ export default async function () {
   let { data } = await RandomQuote();
   let quote: Result[] = data;
 
-  return quote.map((item: Result) => (
+  return (
     <main className="flex h-screen items-center justify-center">
       <RandomButton />
-      <QuoteBlock
-        quoteText={item.quoteText}
-        quoteAuthor={item.quoteAuthor}
-        quoteGenre={item.quoteGenre}
-        withAuthor={true}
-      />
+      {quote.map((item: Result) => (
+        <QuoteBlock
+          key={item._id}
+          quoteText={item.quoteText}
+          quoteAuthor={item.quoteAuthor}
+          quoteGenre={item.quoteGenre}
+          withAuthor={true}
+        />
+      ))}
     </main>
-  ));
+  );
 }
