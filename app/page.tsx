@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import QuoteBlock from './components/QuoteBlock';
 import RandomButton from './components/RandomButton';
 
