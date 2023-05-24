@@ -15,16 +15,16 @@ export type Result = {
 export default function () {
   const [quote, setQuote] = useState<Result[]>([]);
 
-  useEffect(() => {
-    async function getQuote() {
-      const response = await fetch(
-        'https://quote-garden.onrender.com/api/v3/quotes/random'
-      );
-      const json = await response.json();
-      const { data } = json;
-      setQuote(data);
-    }
+  async function getQuote() {
+    const response = await fetch(
+      'https://quote-garden.onrender.com/api/v3/quotes/random'
+    );
+    const json = await response.json();
+    const { data } = json;
+    setQuote(data);
+  }
 
+  useEffect(() => {
     getQuote();
   }, []);
 
@@ -32,7 +32,7 @@ export default function () {
 
   return (
     <main className="flex h-screen items-center justify-center">
-      <RandomButton />
+      <RandomButton onRandomize={getQuote} />
       {quote.map((item: Result) => (
         <QuoteBlock
           key={item._id}
