@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import QuoteBlock from './components/QuoteBlock';
 import RandomButton from './components/RandomButton';
 
@@ -11,22 +12,23 @@ export type Result = {
   __v: number;
 };
 
-export async function RandomQuote() {
-  const res = await fetch(
-    'https://quote-garden.onrender.com/api/v3/quotes/random',
-    { cache: 'no-store' }
-  );
+export default function () {
+  const [quote, setQuote] = useState<Result[]>([]);
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+  useEffect(() => {
+    async function getQuote() {
+      const response = await fetch(
+        'https://quote-garden.onrender.com/api/v3/quotes/random'
+      );
+      const json = await response.json();
+      const { data } = json;
+      setQuote(data);
+    }
 
-  return res.json();
-}
+    getQuote();
+  }, []);
 
-export default async function () {
-  let { data } = await RandomQuote();
-  let quote: Result[] = data;
+  console.log(quote);
 
   return (
     <main className="flex h-screen items-center justify-center">
