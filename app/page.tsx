@@ -42,10 +42,10 @@ export default function () {
   return (
     <main className="flex h-screen items-center justify-center">
       <RandomButton onRandomize={getQuote} />
-      {quote.map((item: Result) =>
-        isLoading ? (
-          <QuoteLoading />
-        ) : (
+      {isLoading ? (
+        <QuoteLoading />
+      ) : (
+        quote.map((item: Result) => (
           <QuoteBlock
             key={item._id}
             quoteText={item.quoteText}
@@ -53,7 +53,7 @@ export default function () {
             quoteGenre={item.quoteGenre}
             withAuthor={true}
           />
-        )
+        ))
       )}
     </main>
   );
