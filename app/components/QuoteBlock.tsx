@@ -18,7 +18,7 @@ export default function QuoteBlock({
     <div>
       <div className="w-[713px] border-l-[8px] border-l-[#F7DF94] pl-[99px]">
         <p className="text-[36px] leading-[43.2px] selection:bg-[#F7DF94]">
-          "{quoteText}"
+          &quot;{quoteText}&quot;
         </p>
       </div>
       {withAuthor && (
