@@ -2,6 +2,11 @@ import QuoteBlock from '../components/QuoteBlock';
 import RandomButton from '../components/RandomButton';
 import { Result } from '../page';
 
+export const metadata = {
+  title: 'Author Quotes',
+  description: 'Random quotes from the selected author.',
+};
+
 export default async function QuotesFromAuthor({
   params,
 }: {
