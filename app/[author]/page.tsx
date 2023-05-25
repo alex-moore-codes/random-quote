@@ -2,7 +2,11 @@ import QuoteBlock from '../components/QuoteBlock';
 import RandomButton from '../components/RandomButton';
 import { Result } from '../page';
 
-export default async function ({ params }: { params: { author: string } }) {
+export default async function QuotesFromAuthor({
+  params,
+}: {
+  params: { author: string };
+}) {
   async function AuthorQuotes() {
     const res = await fetch(
       `https://quote-garden.onrender.com/api/v3/quotes?author=` + params.author

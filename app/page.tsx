@@ -13,7 +13,7 @@ export type Result = {
   __v: number;
 };
 
-export default function () {
+export default function Quote() {
   const [quote, setQuote] = useState<Result[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
